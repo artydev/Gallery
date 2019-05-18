@@ -3,7 +3,6 @@ import m from "mithril";
 import Json from "json5";
 import { Header } from "./Header";
 import { Gallerie } from "./Gallerie";
-import { data } from "../static/list";
 
 function App() {
   let comp = {
