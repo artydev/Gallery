@@ -1,0 +1,21 @@
+{
+  "name": "mithril-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "bss": "latest",
+    "json5": "2.1.0",
+    "mithril": "latest",
+    "w3-css": "4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": []
+}
