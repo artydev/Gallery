@@ -1,10 +1,21 @@
 import m from "mithril";
+import b from "bss";
+import { Modal, isClosed, closeModal } from "./Modal";
+
+
+b.css(".desc", {
+  marginBottom: "30px"
+});
+
 export function Photo() {
+  
+  let showModal = () => (closeModal());
   let comp = {
     view: ({ attrs: { lieu, source, date, description } }) => [
-      m("img", { src: source, style: "width:100%" }),
+      m("img", { onclick: showModal, src: source, style: "width:100%" }),
       m("div", `${lieu} le ${date}`),
-      m("div", description)
+      //showmodal && m("div.desc", description)
+       isClosed() && m(Modal)
     ]
   };
   return comp;

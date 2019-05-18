@@ -8,6 +8,7 @@ Ceci est
 texte sur plusieurs lignes.
 C'est plutôt chouette
 qdqsdqsdqsdqsdqs
-qsdqsdqsdqsd qsdqsdqsd`
+qsdqsdqsdqsd qsdqsdqsd
+`
   }
 ];
