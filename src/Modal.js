@@ -25,20 +25,25 @@ b.css(".modal-content", {
   left: "50%",
   width: "100%",
   height: "100%",
-  background: "rgba(5,90,0,0.53)",
+  background: "rgba(0,0,0,0.23)",
   transform: "translate(-50%, -50%)"
 });
 
 b.css(".close", {
   position: "absolute",
   cursor: "pointer",
-  top: 0,
-  left: "50%"
+  right: "2em",
+  top: "2em",
+  background: "rgba(0,0,0,0.2)"
 });
 
 b.css(".img", {
   width: "100%",
-  height: "auto"
+  maxWidth: "100%",
+  height: "auto",
+  maxHeight: "500px",
+  margin: "0 auto",
+  border: "10px solid white"
 });
 
 function closeModal() {
@@ -57,8 +62,11 @@ export function Modal() {
         m(
           "div.modal",
           m("div.modal-content", [
-            m("div.close", { onclick: closeModal }, "Modal"),
-            m("div", m("img.img", { src: photo }))
+            //m("div.close", { onclick: closeModal }, "X"),
+            m("div", [
+              //m("div.close", { onclick: closeModal }, "Close"),
+              m("img.img", { src: photo })
+            ])
           ])
         )
       );
