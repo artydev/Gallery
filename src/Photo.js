@@ -1,10 +1,10 @@
 import m from "mithril";
 import b from "bss";
-import { Modal , resetModal } from "./Modal";
+import { Modal, resetModal } from "./Modal";
 
 b.css("img", {
   cursor: "pointer"
-})
+});
 
 b.css(".desc", {
   marginBottom: "30px"
@@ -16,7 +16,7 @@ export function Photo() {
       return [
         m("img", { onclick: resetModal, src: source, style: "width:100%" }),
         m("div", `${lieu} le ${date}`),
-        m(Modal)
+        m(Modal, { photo: source })
       ];
     }
   };
