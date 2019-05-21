@@ -11,12 +11,21 @@ b.css(".desc", {
 });
 
 export function Photo() {
+  let clicked = false;
   let comp = {
     view: ({ attrs: { lieu, source, date } }) => {
       return [
-        m("img", { onclick: resetModal, src: source, style: "width:100%" }),
+        m("img#", {
+          onclick: () => {
+            resetModal();
+            clicked = true;
+            setTimeout(() => (clicked = false), 0);
+          },
+          src: source,
+          style: "width:100%"
+        }),
         m("div", `${lieu} le ${date}`),
-        m(Modal, { photo: source })
+        clicked && m(Modal, { photo: `${source}` })
       ];
     }
   };

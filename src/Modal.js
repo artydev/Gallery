@@ -9,32 +9,37 @@ let closingModal = true;
 
 b.css(".modal", {
   position: "fixed",
+  display: "flex",
+  justifyContent: "center",
   top: 0,
   left: 0,
   width: "100%",
   height: "100%",
-  background: "rgba(255,255,255,0.83)"
+  background: "black"
 });
 
 b.css(".modal-content", {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-around",
+  background: "black",
   position: "relative",
-  top: "50%",
-  left: "50%",
-  width: "100%",
-  height: "100%",
-  background: "rgba(0,0,0,0.23)",
-  transform: "translate(-50%, -50%)"
+  display: "flex",
+  top: "5%",
+  width: "90%",
+  height: "90%",
+  justifyContent: "center"
+});
+
+b.css(".close", {
+  position: "absolute",
+  right: "10px",
+  top: "5px",
+  fontWeight: "bold",
+  cursor: "pointer",
+  color: "white"
 });
 
 b.css(".img", {
-  width: "100%",
-  maxWidth: "100%",
-  height: "auto",
-  margin: "0 auto",
-  border: "10px solid white"
+  marginTop: "0 !important",
+  height: "100%"
 });
 
 function closeModal() {
@@ -45,6 +50,10 @@ export function resetModal() {
   closingModal = false;
 }
 
+export function isClosingModal() {
+  return closingModal;
+}
+
 export function Modal() {
   let comp = {
     view({ attrs: { photo } }) {
@@ -52,13 +61,11 @@ export function Modal() {
         !closingModal &&
         m(
           "div.modal",
-          m("div.modal-content", [
-            //m("div.close", { onclick: closeModal }, "X"),
-            m("div", [
-              m("div.close", { onclick: closeModal }, "Close"),
-              m("img.img", { src: photo })
-            ])
-          ])
+          m(
+            "div.modal-content",
+            m("div.close", { onclick: closeModal }, "X"),
+            m("img.img", { alt: photo, src: `${photo}` })
+          )
         )
       );
     }
